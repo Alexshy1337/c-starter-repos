@@ -35,40 +35,43 @@ namespace TreesTwo
             {
                 if (rnd.NextDouble() < c)
                 {
-                    t.left = new BTNode() { level = MainFormAkatosh.MaxDEPTH + 2 - lvl, parent = t };
+                    t.left = new BTNode() { level = MainFormAkatosh.MaxDEPTH + 2 - lvl, parent = t, value = rnd.Next() };
                     GTree(t.left, c, lvl - 1, rnd);
                 } 
                 if (rnd.NextDouble() < c)
                 {
-                    t.right = new BTNode() { level = MainFormAkatosh.MaxDEPTH + 2 - lvl, parent = t };
+                    t.right = new BTNode() { level = MainFormAkatosh.MaxDEPTH + 2 - lvl, parent = t, value = rnd.Next() };
                     GTree(t.right, c, lvl - 1, rnd);
                 }
             }
         }
 
         //сравнить 2 дерева
-        public static void CompareTrees(BinaryTree a, BinaryTree b, ref bool e)
-        {
-            CTFR(a.root, b.root, ref e);
-        }
+        public static bool CompareTrees(BinaryTree a, BinaryTree b) => CTFR(a.root, b.root);
 
-        internal static void CTFR(BTNode a, BTNode b, ref bool e) //CompareTreesFromRoots
+        internal static bool CTFR(BTNode a, BTNode b) //CompareTreesFromRoots
         {
-            if (e)//если не найдено несоответствий - продолжать
-            {
-                if (a.left != null && b.left != null && a.right != null && b.right != null) //если у обоих деревьяев есть оба потомка
+            bool e = false;
+            //if (e)//если не найдено несоответствий - продолжать
+            //{
+                if (a.value == b.value)//сравнение значений
                 {
-                    CTFR(a.left, b.left, ref e);
-                    CTFR(a.right, b.right, ref e);
+                    if (a.left != null && b.left != null && a.right != null && b.right != null) //если у обоих деревьев есть оба потомка
+                    {
+                        CTFR(a.left, b.left);
+                        CTFR(a.right, b.right);
+                    }
+                    else if (a.left != null && b.left != null && a.right == null && b.right == null)//если есть левый потомок и обязательно нет правого
+                        CTFR(a.left, b.left);
+                    else if (a.right != null && b.right != null && a.left == null && b.left == null)//если есть правый но нет левого
+                        CTFR(a.right, b.right);
+                    else if (a.left == null && b.left == null && a.right == null && b.right == null)//если потомков вообще нет
+                        e = true;
+                    else e = false;
                 }
-                else if (a.left != null && b.left != null && a.right == null && b.right == null)//если есть левый потомок и обязательно нет правого
-                    CTFR(a.left, b.left, ref e);
-                else if (a.right != null && b.right != null && a.left == null && b.left == null)//если есть правый но нет левого
-                    CTFR(a.right, b.right, ref e);
-                else if (a.left == null && b.left == null && a.right == null && b.right == null)//если потомков вообще нет
-                    e = true;
                 else e = false;
-            }
+            //}
+            return e;
         }
 
         //аналогично первой задаче на деревья - поиск предыдущего узла с таким же уровнем, как у заданного узла
@@ -169,7 +172,7 @@ namespace TreesTwo
 
     public class BTNode
     {
-        public int level;
+        public int level, value;
         public BTNode left, right;
         public BTNode parent;
         public Point tpoint;
