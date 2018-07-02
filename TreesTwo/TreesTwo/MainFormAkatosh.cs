@@ -1,20 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TreesTwo
 {
-    public partial class Akatosh : Form
+    public partial class MainFormAkatosh : Form
     {
-        public Akatosh()
+        public MainFormAkatosh()
         {
             InitializeComponent();
+            ed[0] = new List<Point>();
+            ed[1] = new List<Point>();
         }
 
         public List<Point> points = new List<Point>();
@@ -22,6 +19,7 @@ namespace TreesTwo
         public BinaryTree aT = new BinaryTree(), bT = new BinaryTree(), cT = new BinaryTree(), dT = new BinaryTree(), compLeft = null, compRight = null;
         private static readonly double chance = 0.7;
         public static readonly int MaxDEPTH = 5, RAD = 12;
+        public Random rnd = new Random();
 
         private void Tree1Check(object sender, MouseEventArgs e)
         {
@@ -39,6 +37,7 @@ namespace TreesTwo
             {
                 compLeft = aT;
                 CompLabelLeft.Text = "1";
+                CompLabelRight.Text = "";
                 compRight = null;
             }
         }
@@ -58,6 +57,7 @@ namespace TreesTwo
             {
                 compLeft = bT;
                 CompLabelLeft.Text = "2";
+                CompLabelRight.Text = "";
                 compRight = null;
             }
         }
@@ -77,6 +77,7 @@ namespace TreesTwo
             {
                 compLeft = cT;
                 CompLabelLeft.Text = "3";
+                CompLabelRight.Text = "";
                 compRight = null;
             }
         }
@@ -96,6 +97,7 @@ namespace TreesTwo
             {
                 compLeft = dT;
                 CompLabelLeft.Text = "4";
+                CompLabelRight.Text = "";
                 compRight = null;
             }
         }
@@ -107,12 +109,15 @@ namespace TreesTwo
             Tree3.CreateGraphics().Clear(Color.White);
             Tree4.CreateGraphics().Clear(Color.White);
             points = new List<Point>();
-            
+            ed[0] = new List<Point>();
+            ed[1] = new List<Point>();
         }
 
         private void CompButton_Click(object sender, EventArgs e)
         {
-            if(BinaryTree.CompareTrees(compLeft, compRight))
+            bool be = true;
+            BinaryTree.CompareTrees(compLeft, compRight, ref be);
+            if (be)
             {
                 AnsLabel.Text = CompLabelLeft.Text + " and " + CompLabelRight.Text + " are equal";
                 CompLabelLeft.Text = "";
@@ -130,24 +135,26 @@ namespace TreesTwo
 
         private void GenButton_Click(object sender, EventArgs e)
         {
-            //aT.root = new BTNode();
-            //cT.root = new BTNode();
-            //dT.root = new BTNode();
-            aT.GTree(aT.root, chance);
-            ;
+            aT.GTree(aT.root, chance, MaxDEPTH, rnd);
             aT.GetPoints(aT.root, Tree1.Width, Tree1.Height, points, ed);
-            ;
             Tree1.CreateGraphics().DrawImage(aT.Draw(Tree1.Width, Tree1.Height, points, ed), new Point(0, 0));
-            //bT.GTree(bT.root, chance);
-            //bT.GetPoints();
             bT = aT;
             Tree2.CreateGraphics().DrawImage(bT.Draw(Tree2.Width, Tree2.Height, points, ed), new Point(0, 0));
-            cT.GTree(cT.root, chance);
+            points = new List<Point>();
+            ed[0] = new List<Point>();
+            ed[1] = new List<Point>();
+            cT.GTree(cT.root, chance, MaxDEPTH, rnd);
             cT.GetPoints(cT.root, Tree1.Width, Tree1.Height, points, ed);
             Tree3.CreateGraphics().DrawImage(cT.Draw(Tree3.Width, Tree3.Height, points, ed), new Point(0, 0));
-            dT.GTree(dT.root, chance);
+            points = new List<Point>();
+            ed[0] = new List<Point>();
+            ed[1] = new List<Point>();
+            dT.GTree(dT.root, chance, MaxDEPTH, rnd);
             dT.GetPoints(dT.root, Tree1.Width, Tree1.Height, points, ed);
             Tree4.CreateGraphics().DrawImage(dT.Draw(Tree4.Width, Tree4.Height, points, ed), new Point(0, 0));
+            points = new List<Point>();
+            ed[0] = new List<Point>();
+            ed[1] = new List<Point>();
         }
     }
 }

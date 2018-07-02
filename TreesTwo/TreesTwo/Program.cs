@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TreesTwo
@@ -16,7 +13,7 @@ namespace TreesTwo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Akatosh());
+            Application.Run(new MainFormAkatosh());
         }
     }
 }

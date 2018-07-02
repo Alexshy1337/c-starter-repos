@@ -1,65 +1,74 @@
 ﻿using System;
-using System.Drawing;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Drawing;
 
 namespace TreesTwo
 {
     public class BinaryTree
     {
         public BTNode root;
-        private Random rnd = new Random();
 
         public BinaryTree() { root = new BTNode(); }
 
-
-        //
         public Bitmap Draw(int w, int h, List<Point> a, List<Point>[] b)
         {
             Bitmap c = new Bitmap(w, h);
             Graphics g = Graphics.FromImage(c);
-            Size s = new Size(Akatosh.RAD * 2, Akatosh.RAD * 2);
+            Size s = new Size(MainFormAkatosh.RAD * 2, MainFormAkatosh.RAD * 2);
 
             for (int i = 0; i < b[0].Count; i++)
                 g.DrawLine(Pens.Black, b[0][i], b[1][i]);
 
             for(int i = 0; i < a.Count; i++)
             {
-                Rectangle r = new Rectangle(a[i], s);
+                Point d = new Point(a[i].X - MainFormAkatosh.RAD, a[i].Y - MainFormAkatosh.RAD);
+                Rectangle r = new Rectangle(d, s);
                 g.FillEllipse(Brushes.Orange, r);
             }
             return c;
         }
 
-        //
-        public void GTree(BTNode r, double c, int level)
+        public void GTree(BTNode t, double c, int lvl, Random rnd)
         {
-            if(rnd.NextDouble() < c)
+            if(lvl != 0)
             {
-                r.left = new BTNode();
-                GTree(r.left, c);
-            }
-            if(rnd.NextDouble() < c)
-            {
-                r.right = new BTNode();
-                GTree(r.right, c);
+                if (rnd.NextDouble() < c)
+                {
+                    t.left = new BTNode() { level = MainFormAkatosh.MaxDEPTH + 2 - lvl, parent = t };
+                    GTree(t.left, c, lvl - 1, rnd);
+                } 
+                if (rnd.NextDouble() < c)
+                {
+                    t.right = new BTNode() { level = MainFormAkatosh.MaxDEPTH + 2 - lvl, parent = t };
+                    GTree(t.right, c, lvl - 1, rnd);
+                }
             }
         }
 
-        //
-        public static bool CompareTrees(BinaryTree a, BinaryTree b)
+        public static void CompareTrees(BinaryTree a, BinaryTree b, ref bool e)
         {
-
-
-
-
-
-            return false;
+            CTFR(a.root, b.root, ref e);
         }
 
-        
+        internal static void CTFR(BTNode a, BTNode b, ref bool e)
+        {
+            if (e)
+            {
+                if (a.left != null && b.left != null && a.right != null && b.right != null)
+                {
+                    CTFR(a.left, b.left, ref e);
+                    CTFR(a.right, b.right, ref e);
+                }
+                else if (a.left != null && b.left != null && a.right == null && b.right == null)
+                    CTFR(a.left, b.left, ref e);
+                else if (a.right != null && b.right != null && a.left == null && b.left == null)
+                    CTFR(a.right, b.right, ref e);
+                else if (a.left == null && b.left == null && a.right == null && b.right == null)
+                    e = true;
+                else e = false;
+            }
+        }
+
         internal static void GetPrev(BTNode start, BTNode search, ref BTNode t1, ref bool f)
         {
             if (f) return;
@@ -73,7 +82,7 @@ namespace TreesTwo
                 }
                 else if (start.left != null)
                     GetPrev(start.left, search, ref t1, ref f);
-                else
+                else if (start.right != null)
                     GetPrev(start.right, search, ref t1, ref f);
             }
             else if (start != search)
@@ -93,9 +102,9 @@ namespace TreesTwo
                 GetPrev(root, t, ref prev, ref f1);
                 Point current;
                 if (prev == null)
-                    current = new Point(step, t.level * canvasHeight / Akatosh.MaxDEPTH - 15);
+                    current = new Point(step, t.level * canvasHeight / (MainFormAkatosh.MaxDEPTH + 1) - 15);
                 else
-                    current = new Point(prev.tpoint.X + step, t.level * canvasHeight / Akatosh.MaxDEPTH - 15);
+                    current = new Point(prev.tpoint.X + step, t.level * canvasHeight / (MainFormAkatosh.MaxDEPTH + 1) - 15);
 
                 t.tpoint = current;
                 n.Add(current); e[0].Add(t.parent.tpoint); e[1].Add(current);
@@ -112,6 +121,7 @@ namespace TreesTwo
             }
             else
             {
+                t.tpoint = new Point(canvasWidth / 2, 12);
                 n.Add(t.tpoint);
                 if (t.left != null && t.right != null)
                 {
@@ -141,27 +151,23 @@ namespace TreesTwo
                     count += SizeOfLevel(c.right, level);
                     return count;
                 }
-                else
+                else if (c.left != null)
                 {
                     count += SizeOfLevel(c.left, level);
                     return count;
                 }
+                else return 0;
             }
             return 1;
         }
-
-
     }
-
 
     public class BTNode
     {
-        //public int value;
         public int level;
         public BTNode left, right;
-        public Point tpoint;
         public BTNode parent;
-
+        public Point tpoint;
         public BTNode() { }
     }
 }

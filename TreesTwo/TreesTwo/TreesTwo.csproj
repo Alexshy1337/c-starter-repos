@@ -45,17 +45,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Akatosh.cs">
+    <Compile Include="MainFormAkatosh.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Akatosh.Designer.cs">
-      <DependentUpon>Akatosh.cs</DependentUpon>
+    <Compile Include="MainFormAkatosh.Designer.cs">
+      <DependentUpon>MainFormAkatosh.cs</DependentUpon>
     </Compile>
     <Compile Include="BinaryTree.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Akatosh.resx">
-      <DependentUpon>Akatosh.cs</DependentUpon>
+    <EmbeddedResource Include="MainFormAkatosh.resx">
+      <DependentUpon>MainFormAkatosh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

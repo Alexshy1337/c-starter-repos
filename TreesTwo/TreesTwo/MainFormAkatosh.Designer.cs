@@ -1,6 +1,6 @@
 ﻿namespace TreesTwo
 {
-    partial class Akatosh
+    partial class MainFormAkatosh
     {
         /// <summary>
         /// Обязательная переменная конструктора.
