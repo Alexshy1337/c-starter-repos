@@ -1,8 +1,0 @@
-E:\TreesOne\TreesOne\bin\Release\TreesOne.exe.config
-E:\TreesOne\TreesOne\bin\Release\TreesOne.exe
-E:\TreesOne\TreesOne\bin\Release\TreesOne.pdb
-E:\TreesOne\TreesOne\obj\Release\TreesOne.MainForm.resources
-E:\TreesOne\TreesOne\obj\Release\TreesOne.Properties.Resources.resources
-E:\TreesOne\TreesOne\obj\Release\TreesOne.csproj.GenerateResource.Cache
-E:\TreesOne\TreesOne\obj\Release\TreesOne.exe
-E:\TreesOne\TreesOne\obj\Release\TreesOne.pdb
