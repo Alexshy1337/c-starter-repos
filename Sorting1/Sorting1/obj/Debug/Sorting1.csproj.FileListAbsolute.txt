@@ -1,0 +1,10 @@
+C:\Users\Sasha\source\repos\Sorting1\Sorting1\bin\Debug\Sorting1.exe.config
+C:\Users\Sasha\source\repos\Sorting1\Sorting1\bin\Debug\Sorting1.exe
+C:\Users\Sasha\source\repos\Sorting1\Sorting1\bin\Debug\Sorting1.pdb
+C:\Users\Sasha\source\repos\Sorting1\Sorting1\obj\Debug\Sorting1.csprojAssemblyReference.cache
+C:\Users\Sasha\source\repos\Sorting1\Sorting1\obj\Debug\Sorting1.Properties.Resources.resources
+C:\Users\Sasha\source\repos\Sorting1\Sorting1\obj\Debug\Sorting1.SortThisForm.resources
+C:\Users\Sasha\source\repos\Sorting1\Sorting1\obj\Debug\Sorting1.csproj.GenerateResource.cache
+C:\Users\Sasha\source\repos\Sorting1\Sorting1\obj\Debug\Sorting1.csproj.CoreCompileInputs.cache
+C:\Users\Sasha\source\repos\Sorting1\Sorting1\obj\Debug\Sorting1.exe
+C:\Users\Sasha\source\repos\Sorting1\Sorting1\obj\Debug\Sorting1.pdb
