@@ -125,11 +125,11 @@ namespace TreesOne
         private static Random rnd = new Random();
 
         //генерация дерева
-        public static void GenerateBranches (TNode curRoot, int maxDepth, int maxBranches)
+        public static void GenerateBranches (TNode curRoot, int maxDepth, int branches)
         {
             if (maxDepth != 0)
             {
-                curRoot.Branches = new TNode[rnd.Next(maxBranches)];
+                curRoot.Branches = new TNode[branches];
                 for (int p = 0; p < curRoot.Branches.Length; p++)
                 {
                     curRoot.Branches[p] = new TNode()
@@ -138,7 +138,7 @@ namespace TreesOne
                         level = MainForm.MaxDEPTH - maxDepth + 1,
                         Parent = curRoot
                     };
-                    GenerateBranches(curRoot.Branches[p], maxDepth - 1, maxBranches);
+                    GenerateBranches(curRoot.Branches[p], maxDepth - 1, branches);
                 }
             }
         }

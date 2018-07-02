@@ -28,3 +28,13 @@ G:\TreesOne\TreesOne\obj\Debug\TreesOne.pdb
 G:\TreesOne\TreesOne\bin\Debug\TreesOne.exe.config
 G:\TreesOne\TreesOne\bin\Debug\TreesOne.exe
 G:\TreesOne\TreesOne\bin\Debug\TreesOne.pdb
+c:\Users\Sasha\source\repos\GIT_REPOSITORY\TreesOne\TreesOne\bin\Debug\TreesOne.exe.config
+c:\Users\Sasha\source\repos\GIT_REPOSITORY\TreesOne\TreesOne\bin\Debug\TreesOne.exe
+c:\Users\Sasha\source\repos\GIT_REPOSITORY\TreesOne\TreesOne\bin\Debug\TreesOne.pdb
+c:\Users\Sasha\source\repos\GIT_REPOSITORY\TreesOne\TreesOne\obj\Debug\TreesOne.csprojAssemblyReference.cache
+c:\Users\Sasha\source\repos\GIT_REPOSITORY\TreesOne\TreesOne\obj\Debug\TreesOne.MainForm.resources
+c:\Users\Sasha\source\repos\GIT_REPOSITORY\TreesOne\TreesOne\obj\Debug\TreesOne.Properties.Resources.resources
+c:\Users\Sasha\source\repos\GIT_REPOSITORY\TreesOne\TreesOne\obj\Debug\TreesOne.csproj.GenerateResource.cache
+c:\Users\Sasha\source\repos\GIT_REPOSITORY\TreesOne\TreesOne\obj\Debug\TreesOne.csproj.CoreCompileInputs.cache
+c:\Users\Sasha\source\repos\GIT_REPOSITORY\TreesOne\TreesOne\obj\Debug\TreesOne.exe
+c:\Users\Sasha\source\repos\GIT_REPOSITORY\TreesOne\TreesOne\obj\Debug\TreesOne.pdb

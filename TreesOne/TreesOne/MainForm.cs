@@ -36,7 +36,7 @@ namespace TreesOne
         static EList Edges = new EList();
         static EList Vert = new EList();
         Tree bakaut = new Tree();
-        public static readonly int MaxDEPTH = 4, MaxBRANCHES = 4, RAD = 8;
+        public static readonly int MaxDEPTH = 3, BRANCHES = 3, RAD = 8;
 
 
         private void GenerateButton_Click(object sender, EventArgs e)
@@ -49,7 +49,7 @@ namespace TreesOne
             Vert = new EList();
 
             //генерация дерева
-            TNode.GenerateBranches(bakaut.root, MaxDEPTH, MaxBRANCHES);
+            TNode.GenerateBranches(bakaut.root, MaxDEPTH, BRANCHES);
 
             //инициализация точки корня для правильной работы алгоритма по нахождению остальных точек
             bakaut.root.tPoint = new Point(DrawingPanel.Width / 2, 15); 
