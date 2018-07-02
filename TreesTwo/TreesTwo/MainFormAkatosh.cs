@@ -3,6 +3,15 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
+
+
+
+
+//Описать логическую функцию, проверяющую на равенство два заданных двоичных дерева.
+
+
+
+
 namespace TreesTwo
 {
     public partial class MainFormAkatosh : Form
