@@ -28,6 +28,7 @@ namespace TreesTwo
             return c;
         }
 
+        //сгенерировать дерево
         public void GTree(BTNode t, double c, int lvl, Random rnd)
         {
             if(lvl != 0)
@@ -45,30 +46,32 @@ namespace TreesTwo
             }
         }
 
+        //сравнить 2 дерева
         public static void CompareTrees(BinaryTree a, BinaryTree b, ref bool e)
         {
             CTFR(a.root, b.root, ref e);
         }
 
-        internal static void CTFR(BTNode a, BTNode b, ref bool e)
+        internal static void CTFR(BTNode a, BTNode b, ref bool e) //CompareTreesFromRoots
         {
-            if (e)
+            if (e)//если не найдено несоответствий - продолжать
             {
-                if (a.left != null && b.left != null && a.right != null && b.right != null)
+                if (a.left != null && b.left != null && a.right != null && b.right != null) //если у обоих деревьяев есть оба потомка
                 {
                     CTFR(a.left, b.left, ref e);
                     CTFR(a.right, b.right, ref e);
                 }
-                else if (a.left != null && b.left != null && a.right == null && b.right == null)
+                else if (a.left != null && b.left != null && a.right == null && b.right == null)//если есть левый потомок и обязательно нет правого
                     CTFR(a.left, b.left, ref e);
-                else if (a.right != null && b.right != null && a.left == null && b.left == null)
+                else if (a.right != null && b.right != null && a.left == null && b.left == null)//если есть правый но нет левого
                     CTFR(a.right, b.right, ref e);
-                else if (a.left == null && b.left == null && a.right == null && b.right == null)
+                else if (a.left == null && b.left == null && a.right == null && b.right == null)//если потомков вообще нет
                     e = true;
                 else e = false;
             }
         }
 
+        //аналогично первой задаче на деревья - поиск предыдущего узла с таким же уровнем, как у заданного узла
         internal static void GetPrev(BTNode start, BTNode search, ref BTNode t1, ref bool f)
         {
             if (f) return;
@@ -92,6 +95,7 @@ namespace TreesTwo
                 f = true;
         }
         
+        //вычисление координат для всех узлов и для рёбер
         public void GetPoints(BTNode t, int canvasWidth, int canvasHeight, List<Point> n, List<Point>[] e)
         {
             if (t.level > 0)
@@ -135,6 +139,7 @@ namespace TreesTwo
             }
         }
 
+        //количество узлов на определенном уровне
         internal static int SizeOfLevel(BTNode c, int level)
         {
             if (c.level != level)

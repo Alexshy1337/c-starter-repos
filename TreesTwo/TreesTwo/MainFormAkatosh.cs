@@ -7,6 +7,7 @@ namespace TreesTwo
 {
     public partial class MainFormAkatosh : Form
     {
+        //initialisation
         public MainFormAkatosh()
         {
             InitializeComponent();
@@ -20,7 +21,10 @@ namespace TreesTwo
         private static readonly double chance = 0.7;
         public static readonly int MaxDEPTH = 5, RAD = 12;
         public Random rnd = new Random();
+        //initialisation
 
+
+        //осуществление выбора 2-х деревьев, которые предстоит сравнивать через клик по элементу Panel с соответствующим рисунком дерева
         private void Tree1Check(object sender, MouseEventArgs e)
         {
             if (compLeft == null && compRight == null)
@@ -102,17 +106,16 @@ namespace TreesTwo
             }
         }
 
+        //очистка панелей
         private void ClrButton_Click(object sender, EventArgs e)
         {
             Tree1.CreateGraphics().Clear(Color.White);
             Tree2.CreateGraphics().Clear(Color.White);
             Tree3.CreateGraphics().Clear(Color.White);
             Tree4.CreateGraphics().Clear(Color.White);
-            points = new List<Point>();
-            ed[0] = new List<Point>();
-            ed[1] = new List<Point>();
         }
 
+        //сравнить
         private void CompButton_Click(object sender, EventArgs e)
         {
             bool be = true;
@@ -133,6 +136,7 @@ namespace TreesTwo
             }
         }
 
+        //сгенерировать 3 дерева, 2 равных дерева нарисовать в двух верхних панелях
         private void GenButton_Click(object sender, EventArgs e)
         {
             aT.GTree(aT.root, chance, MaxDEPTH, rnd);
