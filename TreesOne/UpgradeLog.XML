@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="TreesOne">
+</Property><Property Name="Файл решения" Value="E:\TreesOne\TreesOne.sln">
+</Property><Property Name="Date" Value="Saturday, June 23, 2018">
+</Property><Property Name="Time" Value="11:35 AM">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="TreesOne.sln" Description="Успешно создана резервная копия файла E:\TreesOne\Backup\TreesOne.sln">
+</Event><Event ErrorLevel="0" Project="TreesOne" Source="TreesOne\TreesOne.csproj" Description="Успешно создана резервная копия файла проекта: E:\TreesOne\Backup\TreesOne\TreesOne.csproj">
+</Event><Event ErrorLevel="0" Project="TreesOne" Source="TreesOne\EList.cs" Description="Успешно создана резервная копия файла E:\TreesOne\Backup\TreesOne\EList.cs">
+</Event><Event ErrorLevel="0" Project="TreesOne" Source="TreesOne\MainForm.cs" Description="Успешно создана резервная копия файла E:\TreesOne\Backup\TreesOne\MainForm.cs">
+</Event><Event ErrorLevel="0" Project="TreesOne" Source="TreesOne\MainForm.Designer.cs" Description="Успешно создана резервная копия файла E:\TreesOne\Backup\TreesOne\MainForm.Designer.cs">
+</Event><Event ErrorLevel="0" Project="TreesOne" Source="TreesOne\Program.cs" Description="Успешно создана резервная копия файла E:\TreesOne\Backup\TreesOne\Program.cs">
+</Event><Event ErrorLevel="0" Project="TreesOne" Source="TreesOne\Properties\AssemblyInfo.cs" Description="Успешно создана резервная копия файла E:\TreesOne\Backup\TreesOne\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="TreesOne" Source="TreesOne\Tree.cs" Description="Успешно создана резервная копия файла E:\TreesOne\Backup\TreesOne\Tree.cs">
+</Event><Event ErrorLevel="0" Project="TreesOne" Source="TreesOne\Properties\Resources.Designer.cs" Description="Успешно создана резервная копия файла E:\TreesOne\Backup\TreesOne\Properties\Resources.Designer.cs">
+</Event><Event ErrorLevel="0" Project="TreesOne" Source="TreesOne\Properties\Settings.Designer.cs" Description="Успешно создана резервная копия файла E:\TreesOne\Backup\TreesOne\Properties\Settings.Designer.cs">
+</Event><Event ErrorLevel="0" Project="TreesOne" Source="TreesOne\Properties\Settings.settings" Description="Успешно создана резервная копия файла E:\TreesOne\Backup\TreesOne\Properties\Settings.settings">
+</Event><Event ErrorLevel="0" Project="TreesOne" Source="TreesOne\App.config" Description="Успешно создана резервная копия файла E:\TreesOne\Backup\TreesOne\App.config">
+</Event><Event ErrorLevel="0" Project="TreesOne" Source="TreesOne\MainForm.resx" Description="Успешно создана резервная копия файла E:\TreesOne\Backup\TreesOne\MainForm.resx">
+</Event><Event ErrorLevel="0" Project="TreesOne" Source="TreesOne\Properties\Resources.resx" Description="Успешно создана резервная копия файла E:\TreesOne\Backup\TreesOne\Properties\Resources.resx">
+</Event><Event ErrorLevel="0" Project="TreesOne" Source="TreesOne\TreesOne.csproj" Description="Файл проекта не нуждается в преобразовании.">
+</Event><Event ErrorLevel="3" Project="TreesOne" Source="TreesOne\TreesOne.csproj" Description="Преобразование не требуется">
+</Event><Event ErrorLevel="0" Project="" Source="TreesOne.sln" Description="Преобразование решения успешно завершено">
+</Event><Event ErrorLevel="3" Project="" Source="TreesOne.sln" Description="Converted">
+</Event></UpgradeLog>

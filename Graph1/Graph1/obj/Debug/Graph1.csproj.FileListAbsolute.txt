@@ -1,0 +1,10 @@
+C:\Users\Sasha\source\repos\Graph1\Graph1\bin\Debug\Graph1.exe.config
+C:\Users\Sasha\source\repos\Graph1\Graph1\bin\Debug\Graph1.exe
+C:\Users\Sasha\source\repos\Graph1\Graph1\bin\Debug\Graph1.pdb
+C:\Users\Sasha\source\repos\Graph1\Graph1\obj\Debug\Graph1.csprojAssemblyReference.cache
+C:\Users\Sasha\source\repos\Graph1\Graph1\obj\Debug\Graph1.GForm.resources
+C:\Users\Sasha\source\repos\Graph1\Graph1\obj\Debug\Graph1.Properties.Resources.resources
+C:\Users\Sasha\source\repos\Graph1\Graph1\obj\Debug\Graph1.csproj.GenerateResource.cache
+C:\Users\Sasha\source\repos\Graph1\Graph1\obj\Debug\Graph1.csproj.CoreCompileInputs.cache
+C:\Users\Sasha\source\repos\Graph1\Graph1\obj\Debug\Graph1.exe
+C:\Users\Sasha\source\repos\Graph1\Graph1\obj\Debug\Graph1.pdb
