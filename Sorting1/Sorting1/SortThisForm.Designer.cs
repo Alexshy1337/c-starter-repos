@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.MainTableLayout = new System.Windows.Forms.TableLayoutPanel();
             this.OptionsTableLayout = new System.Windows.Forms.TableLayoutPanel();
             this.SortingOptions_GroupBox = new System.Windows.Forms.GroupBox();
@@ -54,6 +54,7 @@
             this.InputDGV1 = new System.Windows.Forms.DataGridView();
             this.MainChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.OpenFileDlg = new System.Windows.Forms.OpenFileDialog();
+            this.NUDC = new System.Windows.Forms.NumericUpDown();
             this.MainTableLayout.SuspendLayout();
             this.OptionsTableLayout.SuspendLayout();
             this.SortingOptions_GroupBox.SuspendLayout();
@@ -65,6 +66,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.NumForDGV1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.InputDGV1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MainChart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDC)).BeginInit();
             this.SuspendLayout();
             // 
             // MainTableLayout
@@ -99,7 +101,7 @@
             this.OptionsTableLayout.RowCount = 3;
             this.OptionsTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 44.62541F));
             this.OptionsTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 55.37459F));
-            this.OptionsTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 112F));
+            this.OptionsTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 139F));
             this.OptionsTableLayout.Size = new System.Drawing.Size(163, 444);
             this.OptionsTableLayout.TabIndex = 7;
             // 
@@ -111,7 +113,7 @@
             this.SortingOptions_GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SortingOptions_GroupBox.Location = new System.Drawing.Point(3, 3);
             this.SortingOptions_GroupBox.Name = "SortingOptions_GroupBox";
-            this.SortingOptions_GroupBox.Size = new System.Drawing.Size(157, 142);
+            this.SortingOptions_GroupBox.Size = new System.Drawing.Size(157, 130);
             this.SortingOptions_GroupBox.TabIndex = 1;
             this.SortingOptions_GroupBox.TabStop = false;
             this.SortingOptions_GroupBox.Text = "Сортировка";
@@ -155,9 +157,9 @@
             this.Actions_GroupBox.Controls.Add(this.ClearButton);
             this.Actions_GroupBox.Controls.Add(this.FillButton);
             this.Actions_GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Actions_GroupBox.Location = new System.Drawing.Point(3, 151);
+            this.Actions_GroupBox.Location = new System.Drawing.Point(3, 139);
             this.Actions_GroupBox.Name = "Actions_GroupBox";
-            this.Actions_GroupBox.Size = new System.Drawing.Size(157, 177);
+            this.Actions_GroupBox.Size = new System.Drawing.Size(157, 162);
             this.Actions_GroupBox.TabIndex = 0;
             this.Actions_GroupBox.TabStop = false;
             this.Actions_GroupBox.Text = "Операции";
@@ -204,13 +206,14 @@
             // 
             // ComparsionOptions_GroupBox
             // 
+            this.ComparsionOptions_GroupBox.Controls.Add(this.NUDC);
             this.ComparsionOptions_GroupBox.Controls.Add(this.CompareButton);
             this.ComparsionOptions_GroupBox.Controls.Add(this.CompCountRadio);
             this.ComparsionOptions_GroupBox.Controls.Add(this.ExchangeCountRadio);
             this.ComparsionOptions_GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ComparsionOptions_GroupBox.Location = new System.Drawing.Point(3, 334);
+            this.ComparsionOptions_GroupBox.Location = new System.Drawing.Point(3, 307);
             this.ComparsionOptions_GroupBox.Name = "ComparsionOptions_GroupBox";
-            this.ComparsionOptions_GroupBox.Size = new System.Drawing.Size(157, 107);
+            this.ComparsionOptions_GroupBox.Size = new System.Drawing.Size(157, 134);
             this.ComparsionOptions_GroupBox.TabIndex = 2;
             this.ComparsionOptions_GroupBox.TabStop = false;
             this.ComparsionOptions_GroupBox.Text = "Сравнение";
@@ -297,26 +300,26 @@
             // 
             // MainChart
             // 
-            chartArea6.Name = "ChartArea1";
-            this.MainChart.ChartAreas.Add(chartArea6);
+            chartArea1.Name = "ChartArea1";
+            this.MainChart.ChartAreas.Add(chartArea1);
             this.MainChart.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend6.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            legend6.Name = "Legend1";
-            this.MainChart.Legends.Add(legend6);
+            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend1.Name = "Legend1";
+            this.MainChart.Legends.Add(legend1);
             this.MainChart.Location = new System.Drawing.Point(3, 3);
             this.MainChart.Name = "MainChart";
-            series11.ChartArea = "ChartArea1";
-            series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series11.Legend = "Legend1";
-            series11.LegendText = "Пузырьковая";
-            series11.Name = "BubbleSeries";
-            series12.ChartArea = "ChartArea1";
-            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series12.Legend = "Legend1";
-            series12.LegendText = "Слияние";
-            series12.Name = "FusionSeries";
-            this.MainChart.Series.Add(series11);
-            this.MainChart.Series.Add(series12);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Legend = "Legend1";
+            series1.LegendText = "Пузырьковая";
+            series1.Name = "BubbleSeries";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Legend = "Legend1";
+            series2.LegendText = "Слияние";
+            series2.Name = "FusionSeries";
+            this.MainChart.Series.Add(series1);
+            this.MainChart.Series.Add(series2);
             this.MainChart.Size = new System.Drawing.Size(468, 444);
             this.MainChart.TabIndex = 5;
             this.MainChart.Text = "chart1";
@@ -324,6 +327,13 @@
             // OpenFileDlg
             // 
             this.OpenFileDlg.FileName = "openFileDialog";
+            // 
+            // NUDC
+            // 
+            this.NUDC.Location = new System.Drawing.Point(17, 108);
+            this.NUDC.Name = "NUDC";
+            this.NUDC.Size = new System.Drawing.Size(120, 20);
+            this.NUDC.TabIndex = 3;
             // 
             // SortThisForm
             // 
@@ -348,6 +358,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.NumForDGV1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.InputDGV1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MainChart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDC)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -375,6 +386,7 @@
         private System.Windows.Forms.NumericUpDown NumForDGV1;
         private System.Windows.Forms.DataGridView InputDGV1;
         private System.Windows.Forms.DataVisualization.Charting.Chart MainChart;
+        private System.Windows.Forms.NumericUpDown NUDC;
     }
 }
 

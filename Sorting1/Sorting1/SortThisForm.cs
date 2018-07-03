@@ -74,15 +74,28 @@ namespace Sorting1
 
         private void CompareButton_Click(object sender, EventArgs e)
         {
+            int size = (int)NUDC.Value;
+            List<Point> l = new List<Point>();
+            int FCC = 0, FSC = 0;
+            int[] ar = new int[(int)NumForDGV1.Value];
+            arr1 = Sorts.FusionSort(arr1, ar, 0, ar.Length - 1, ref FCC, ref FSC);
+            //NUDC
 
+            FCC = 0; FSC = 0;
+            Utils.DGVHelper.FillDGV(InputDGV1, arr1);
+            //MainChart.ChartAreas[0].
+            MainChart.Series[0].Points.Add(new Point());
         }
+    
 
         private void SortButton_Click_1(object sender, EventArgs e)
         {
-            int CCB = 0, SCB = 0, CCF = 0, SCF = 0;
+            int BCC = 0, BSC = 0, FCC = 0, FSC = 0;
             if (FusionRadio.Checked)
             {
-                //
+                int[] ar = new int[(int)NumForDGV1.Value];
+                arr1 = Sorts.FusionSort(arr1, ar, 0, ar.Length - 1, ref FCC, ref FSC);
+                Utils.DGVHelper.FillDGV(InputDGV1, arr1);
             }
             else if (BubbleRadio.Checked)
             {

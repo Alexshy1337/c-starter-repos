@@ -34,12 +34,12 @@ namespace TreesTwo
             {
                 if (rnd.NextDouble() < c)
                 {
-                    t.left = new BTNode() { level = MainFormAkatosh.MaxDEPTH + 2 - lvl, parent = t };
+                    t.left = new BTNode() { level = MainFormAkatosh.MaxDEPTH + 2 - lvl, parent = t, value = rnd.Next() };
                     GTree(t.left, c, lvl - 1, rnd);
                 } 
                 if (rnd.NextDouble() < c)
                 {
-                    t.right = new BTNode() { level = MainFormAkatosh.MaxDEPTH + 2 - lvl, parent = t };
+                    t.right = new BTNode() { level = MainFormAkatosh.MaxDEPTH + 2 - lvl, parent = t, value = rnd.Next() };
                     GTree(t.right, c, lvl - 1, rnd);
                 }
             }
@@ -50,18 +50,22 @@ namespace TreesTwo
         internal static bool CTFR(BTNode a, BTNode b)
         {
             bool be;
+            if (a.value == b.value)
+            {
                 if (a.left != null && b.left != null && a.right != null && b.right != null)
                 {
                     be = CTFR(a.left, b.left);
                     be = CTFR(a.right, b.right);
                 }
                 else if (a.left != null && b.left != null && a.right == null && b.right == null)
-                    be = CTFR(a.left, b.left);
+                    return CTFR(a.left, b.left);
                 else if (a.right != null && b.right != null && a.left == null && b.left == null)
-                    be = CTFR(a.right, b.right);
+                    return CTFR(a.right, b.right);
                 else if (a.left == null && b.left == null && a.right == null && b.right == null)
-                    be = true;
-                else be = false;
+                    return true;
+                else return false;
+            }
+            else return false;            
             return be;
         }
 
@@ -160,7 +164,7 @@ namespace TreesTwo
 
     public class BTNode
     {
-        public int level;
+        public int level, value;
         public BTNode left, right;
         public BTNode parent;
         public Point tpoint;

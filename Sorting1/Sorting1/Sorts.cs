@@ -53,7 +53,7 @@ namespace Sorting1
           **/
 
         //CC - comparisonsCount, SC - swapsCount
-        private static int[] FusionSort(int[] up, int[] down, int left, int right, ref int CC, ref int SC)
+        public static int[] FusionSort(int[] up, int[] down, int left, int right, ref int CC, ref int SC)
         {
 
 
