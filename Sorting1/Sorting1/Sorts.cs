@@ -129,19 +129,19 @@ namespace Sorting1
         {
             int[] down = new int[nonsorted.Length];
             int[] l_buff = FusionSort(nonsorted, down, 0, nonsorted.Length - 1);
-            down = new int[part_sorted.Length];
-            int[] r_buff = FusionSort(part_sorted, down, 0, part_sorted.Length - 1);
+            int[] r_buff = part_sorted;
 
             List<int> temp = new List<int>();
 
 
-            int i = 0, j = 0;
+            int i = 0, j = part_sorted.Length - 1;
             int buf = 1000;//любое число, которого не может быть ни в одном из массивов, служит проверкой на отстутствие повторений
 
-
-            while (i < l_buff.Length || j < r_buff.Length)
+            //раз уж 2-й массив отсортирован в обратном нужному нам порядке, можно просто проходить по нему с конца к началу
+            //раньше что-то не дошло....
+            while (i < l_buff.Length || j > 0)
             {
-                if (i < l_buff.Length && j < r_buff.Length)
+                if (i < l_buff.Length && j > 0)
                 {
                     //записываем в результат меньший из 2-х элементов такой, которого еще не было
 
@@ -156,7 +156,7 @@ namespace Sorting1
                     {
                         buf = r_buff[j];
                         temp.Add(r_buff[j]);
-                        j++;
+                        j--;
                     }
                     else
                     {
@@ -166,7 +166,7 @@ namespace Sorting1
                             temp.Add(l_buff[i]);
                         }
                         i++;
-                        j++;
+                        j--;
                     }
                 }
                 else//если непросмотренные элементы остались только в одном массиве
@@ -177,13 +177,13 @@ namespace Sorting1
                         i++;
                     }
                     else
-                    if (r_buff.Length > j && buf != r_buff[j])
+                    if (j > 0 && buf != r_buff[j])
                     {
                         buf = r_buff[j];
                         temp.Add(r_buff[j]);
-                        j++;
+                        j--;
                     }
-                    else j++;
+                    else j--;
                 }
             }
             int[] result = new int[temp.Count];
