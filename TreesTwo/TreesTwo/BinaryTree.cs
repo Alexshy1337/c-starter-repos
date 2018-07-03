@@ -45,28 +45,29 @@ namespace TreesTwo
             }
         }
 
-        public static bool CompareTrees(BinaryTree a, BinaryTree b) => CTFR(a.root, b.root);
+        public static void CompareTrees(BinaryTree a, BinaryTree b, ref bool e) => CTFR(a.root, b.root, ref e);
 
-        internal static bool CTFR(BTNode a, BTNode b)
+        internal static void CTFR(BTNode a, BTNode b, ref bool e)
         {
-            bool be;
-            if (a.value == b.value)
+            if(e)
             {
-                if (a.left != null && b.left != null && a.right != null && b.right != null)
+                if (a.value == b.value)
                 {
-                    be = CTFR(a.left, b.left);
-                    be = CTFR(a.right, b.right);
+                    if (a.left != null && b.left != null && a.right != null && b.right != null)
+                    {
+                        CTFR(a.left, b.left, ref e);
+                        CTFR(a.right, b.right, ref e);
+                    }
+                    else if (a.left != null && b.left != null && a.right == null && b.right == null)
+                        CTFR(a.left, b.left, ref e);
+                    else if (a.right != null && b.right != null && a.left == null && b.left == null)
+                        CTFR(a.right, b.right, ref e);
+                    else if (a.left == null && b.left == null && a.right == null && b.right == null)
+                        e = true;
+                    else e = false;
                 }
-                else if (a.left != null && b.left != null && a.right == null && b.right == null)
-                    return CTFR(a.left, b.left);
-                else if (a.right != null && b.right != null && a.left == null && b.left == null)
-                    return CTFR(a.right, b.right);
-                else if (a.left == null && b.left == null && a.right == null && b.right == null)
-                    return true;
-                else return false;
+                else e = false;
             }
-            else return false;            
-            return be;
         }
 
         internal static void GetPrev(BTNode start, BTNode search, ref BTNode t1, ref bool f)

@@ -115,7 +115,9 @@ namespace TreesTwo
 
         private void CompButton_Click(object sender, EventArgs e)
         {
-            if (BinaryTree.CompareTrees(compLeft, compRight))
+            bool be = true;
+            BinaryTree.CompareTrees(compLeft, compRight, ref be);
+            if (be)
             {
                 AnsLabel.Text = CompLabelLeft.Text + " and " + CompLabelRight.Text + " are equal";
                 CompLabelLeft.Text = "";
