@@ -119,8 +119,7 @@ namespace Sorting1
                 if(NumForDGV2.Value != 0)
                 {
                     //FusionSortForTask
-                    int[] ar = new int[(int)NumForDGV1.Value];
-                    arr1 = Sorts.FusionSortForTask(arr1, arr2, ar);
+                    arr1 = Sorts.FusionSortForTask(arr1, arr2);
                     Utils.DGVHelper.FillDGV(InputDGV1, arr1);
                 }
                 else

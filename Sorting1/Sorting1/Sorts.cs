@@ -125,16 +125,18 @@ namespace Sorting1
             return target;
         }
 
-        public static int[] FusionSortForTask(int[] nonsorted, int[] part_sorted, int[] down)
+        public static int[] FusionSortForTask(int[] nonsorted, int[] part_sorted)
         {
+            int[] down = new int[nonsorted.Length];
             int[] l_buff = FusionSort(nonsorted, down, 0, nonsorted.Length - 1);
+            down = new int[part_sorted.Length];
             int[] r_buff = FusionSort(part_sorted, down, 0, part_sorted.Length - 1);
 
-            int[] result = new int[nonsorted.Length + part_sorted.Length - 2];
+            List<int> temp = new List<int>();
 
 
-            int i = 0, j = 0, k = 0;
-            int buf = 1000;
+            int i = 0, j = 0;
+            int buf = 1000;//любое число, которого не может быть ни в одном из массивов, служит проверкой на отстутствие повторений
 
 
             while (i < l_buff.Length || j < r_buff.Length)
@@ -146,14 +148,14 @@ namespace Sorting1
                     if (l_buff[i] < r_buff[j] && buf != l_buff[i])
                     {
                         buf = l_buff[i];
-                        result[k] = l_buff[i];
+                        temp.Add(l_buff[i]);
                         i++;
                     }
                     else
                     if (l_buff[i] > r_buff[j] && buf != r_buff[j])
                     {
                         buf = r_buff[j];
-                        result[k] = r_buff[j];
+                        temp.Add(r_buff[j]);
                         j++;
                     }
                     else
@@ -161,61 +163,32 @@ namespace Sorting1
                         if (buf != l_buff[i])//уже знаем, что элементы массивов при данных индексах равны
                         {
                             buf = l_buff[i];
-                            result[k] = l_buff[i];
+                            temp.Add(l_buff[i]);
                         }
                         i++;
                         j++;
                     }
-                    k++;
                 }
                 else//если непросмотренные элементы остались только в одном массиве
                 {
-                    if (l_buff.Length - 1 > i)
+                    if (l_buff.Length > i)
                     {
-                        result[k] = l_buff[i];
+                        temp.Add(l_buff[i]);
                         i++;
-                        k++;
                     }
                     else
                     if (r_buff.Length > j && buf != r_buff[j])
                     {
                         buf = r_buff[j];
-                        result[k] = r_buff[j];
+                        temp.Add(r_buff[j]);
                         j++;
-                        k++;
                     }
                     else j++;
                 }
             }
-
-            //int l_cur = left, r_cur = middle + 1;
-            //for (int i = left; i <= right; i++)
-            //{
-            //    if (l_cur <= middle && r_cur <= right)
-            //    {
-            //        if (l_buff[l_cur] < r_buff[r_cur])
-            //        {
-            //            target[i] = l_buff[l_cur];
-            //            l_cur++;
-            //        }
-            //        else
-            //        {
-            //            target[i] = r_buff[r_cur];
-            //            r_cur++;
-            //        }
-            //    }
-            //    else if (l_cur <= middle)
-            //    {
-            //        target[i] = l_buff[l_cur];
-            //        l_cur++;
-            //    }
-            //    else
-            //    {
-            //        target[i] = r_buff[r_cur];
-            //        r_cur++;
-            //    }
-            //}
-
+            int[] result = new int[temp.Count];
+            for (int k = 0; k < temp.Count; k++)
+                result[k] = temp[k];
             return result;
         }
 
