@@ -8,3 +8,13 @@ C:\Users\Sasha\source\repos\Sorting1\Sorting1\obj\Debug\Sorting1.csproj.Generate
 C:\Users\Sasha\source\repos\Sorting1\Sorting1\obj\Debug\Sorting1.csproj.CoreCompileInputs.cache
 C:\Users\Sasha\source\repos\Sorting1\Sorting1\obj\Debug\Sorting1.exe
 C:\Users\Sasha\source\repos\Sorting1\Sorting1\obj\Debug\Sorting1.pdb
+c:\Users\Sasha\source\repos\GIT_REPOSITORY\Sorting1\Sorting1\bin\Debug\Sorting1.exe.config
+c:\Users\Sasha\source\repos\GIT_REPOSITORY\Sorting1\Sorting1\bin\Debug\Sorting1.exe
+c:\Users\Sasha\source\repos\GIT_REPOSITORY\Sorting1\Sorting1\bin\Debug\Sorting1.pdb
+c:\Users\Sasha\source\repos\GIT_REPOSITORY\Sorting1\Sorting1\obj\Debug\Sorting1.csprojAssemblyReference.cache
+c:\Users\Sasha\source\repos\GIT_REPOSITORY\Sorting1\Sorting1\obj\Debug\Sorting1.Properties.Resources.resources
+c:\Users\Sasha\source\repos\GIT_REPOSITORY\Sorting1\Sorting1\obj\Debug\Sorting1.SortThisForm.resources
+c:\Users\Sasha\source\repos\GIT_REPOSITORY\Sorting1\Sorting1\obj\Debug\Sorting1.csproj.GenerateResource.cache
+c:\Users\Sasha\source\repos\GIT_REPOSITORY\Sorting1\Sorting1\obj\Debug\Sorting1.csproj.CoreCompileInputs.cache
+c:\Users\Sasha\source\repos\GIT_REPOSITORY\Sorting1\Sorting1\obj\Debug\Sorting1.exe
+c:\Users\Sasha\source\repos\GIT_REPOSITORY\Sorting1\Sorting1\obj\Debug\Sorting1.pdb

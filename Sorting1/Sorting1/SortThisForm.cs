@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Drawing;
 using System.IO;
@@ -7,91 +8,86 @@ namespace Sorting1
 {
     public partial class SortThisForm : Form
     {
-        private static int[] arr;
+        private static int[] arr1, arr2;
 
         public SortThisForm()
         {
             InitializeComponent();
         }
 
-        private void SortThisForm_Load(object sender, System.EventArgs e)
+        private void SortThisForm_Load(object sender, EventArgs e)
         {
             InputDGV1.RowCount = 1;
             InputDGV1.ColumnCount = 1;
+            InputDGV2.RowCount = 1;
+            InputDGV2.ColumnCount = 1;
         }
 
-        private void UpDownForDGV_ValueChanged(object sender, System.EventArgs e)
+        private void NumForDGV1_ValueChanged(object sender, EventArgs e)
         {
             if (NumForDGV1.Value != 0)
                 InputDGV1.RowCount = (int)(NumForDGV1.Value);
             else InputDGV1.Rows.Clear();
         }
 
-        private void FillButton_Click(object sender, System.EventArgs e)
+        private void NumForDGV2_ValueChanged(object sender, EventArgs e)
+        {
+            if (NumForDGV2.Value != 0)
+                InputDGV2.RowCount = (int)(NumForDGV2.Value);
+            else InputDGV2.Rows.Clear();
+        }
+
+        private void FillButton_Click_1(object sender, EventArgs e)
         {
 
             if (NumForDGV1.Value != 0)
             {
                 if (FromSourceCheck.Checked)
                 {
-                    arr = Utils.DGVHelper.InputFromDGV(InputDGV1);
+                    arr1 = Utils.DGVHelper.InputFromDGV(InputDGV1);
+                    arr2 = Utils.DGVHelper.InputFromDGV(InputDGV2);
                 }
                 else
                 {
-                    arr = Utils.ArrHelper.GenArr((int)NumForDGV1.Value);
-                    Utils.DGVHelper.FillDGV(InputDGV1, arr);
+                    arr1 = Utils.ArrHelper.GenArr((int)NumForDGV1.Value);
+                    arr2 = Utils.ArrHelper.GenArr((int)NumForDGV2.Value);
+                    Utils.DGVHelper.FillDGV(InputDGV1, arr1);
+                    arr2 = Sorts.ReverseBubbleSort(arr2, 0, arr2.Length - 1);
+                    Utils.DGVHelper.FillDGV(InputDGV2, arr2);
                 }
             }
         }
 
-        private void ClearButton_Click(object sender, System.EventArgs e)
+        private void ClearButton_Click_1(object sender, EventArgs e)
         {
             NumForDGV1.Value = 0;
+            NumForDGV2.Value = 0;
         }
 
-        private void MixButton_Click(object sender, System.EventArgs e)
+        private void MixButton_Click_1(object sender, EventArgs e)
         {
-            Utils.ArrHelper.ShuffleArr(arr);
-            Utils.DGVHelper.FillDGV(InputDGV1, arr);
+            Utils.ArrHelper.ShuffleArr(arr1);
+            Utils.DGVHelper.FillDGV(InputDGV1, arr1);
+            Utils.ArrHelper.ShuffleArr(arr2);
+            Utils.DGVHelper.FillDGV(InputDGV2, arr2);
         }
 
-        private void Exit_MenuItem_Click(object sender, System.EventArgs e)
+        private void CompareButton_Click(object sender, EventArgs e)
         {
-            Close();
+
         }
 
-        private void Open_MenuItem_Click(object sender, System.EventArgs e)
+        private void SortButton_Click_1(object sender, EventArgs e)
         {
-            if (OpenFileDlg.ShowDialog() != DialogResult.OK)
-                return;
-            arr = Utils.ArrHelper.StringToArr(File.ReadAllText(OpenFileDlg.FileName));
-            Utils.DGVHelper.FillDGV(InputDGV1, arr);
-            NumForDGV1.Value = arr.Length;
-        }
-
-        private void DemoButton_Click(object sender, System.EventArgs e)
-        {
-            if (NumForDGV1.Value != 0)
+            int CCB = 0, SCB = 0, CCF = 0, SCF = 0;
+            if (FusionRadio.Checked)
             {
-                Bitmap map = Sorting1.Show.DrawArrayToBitmap
-                    
-                    (Tab_Demo.Width, Tab_Demo.Height, arr, new HashSet<int>(), Sorting1.Show.HighlightType.Comparing);
-
-
-                Tab_Demo.CreateGraphics().DrawImage(map, 0, 0);
+                //
             }
-        }
-
-        private void SortButton_Click(object sender, System.EventArgs e)
-        {
-
-        }
-
-        private void NumForDGV2_ValueChanged(object sender, System.EventArgs e)
-        {
-            if (NumForDGV2.Value != 0)
-                InputDGV2.RowCount = (int)(NumForDGV2.Value);
-            else InputDGV2.Rows.Clear();
+            else if (BubbleRadio.Checked)
+            {
+                //
+            }
         }
     }
 }

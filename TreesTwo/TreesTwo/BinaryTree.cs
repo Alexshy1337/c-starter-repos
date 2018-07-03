@@ -28,53 +28,43 @@ namespace TreesTwo
             return c;
         }
 
-        //сгенерировать дерево
         public void GTree(BTNode t, double c, int lvl, Random rnd)
         {
             if(lvl != 0)
             {
                 if (rnd.NextDouble() < c)
                 {
-                    t.left = new BTNode() { level = MainFormAkatosh.MaxDEPTH + 2 - lvl, parent = t, value = rnd.Next() };
+                    t.left = new BTNode() { level = MainFormAkatosh.MaxDEPTH + 2 - lvl, parent = t };
                     GTree(t.left, c, lvl - 1, rnd);
                 } 
                 if (rnd.NextDouble() < c)
                 {
-                    t.right = new BTNode() { level = MainFormAkatosh.MaxDEPTH + 2 - lvl, parent = t, value = rnd.Next() };
+                    t.right = new BTNode() { level = MainFormAkatosh.MaxDEPTH + 2 - lvl, parent = t };
                     GTree(t.right, c, lvl - 1, rnd);
                 }
             }
         }
 
-        //сравнить 2 дерева
         public static bool CompareTrees(BinaryTree a, BinaryTree b) => CTFR(a.root, b.root);
 
-        internal static bool CTFR(BTNode a, BTNode b) //CompareTreesFromRoots
+        internal static bool CTFR(BTNode a, BTNode b)
         {
-            bool e = false;
-            //if (e)//если не найдено несоответствий - продолжать
-            //{
-                if (a.value == b.value)//сравнение значений
+            bool be;
+                if (a.left != null && b.left != null && a.right != null && b.right != null)
                 {
-                    if (a.left != null && b.left != null && a.right != null && b.right != null) //если у обоих деревьев есть оба потомка
-                    {
-                        CTFR(a.left, b.left);
-                        CTFR(a.right, b.right);
-                    }
-                    else if (a.left != null && b.left != null && a.right == null && b.right == null)//если есть левый потомок и обязательно нет правого
-                        CTFR(a.left, b.left);
-                    else if (a.right != null && b.right != null && a.left == null && b.left == null)//если есть правый но нет левого
-                        CTFR(a.right, b.right);
-                    else if (a.left == null && b.left == null && a.right == null && b.right == null)//если потомков вообще нет
-                        e = true;
-                    else e = false;
+                    be = CTFR(a.left, b.left);
+                    be = CTFR(a.right, b.right);
                 }
-                else e = false;
-            //}
-            return e;
+                else if (a.left != null && b.left != null && a.right == null && b.right == null)
+                    be = CTFR(a.left, b.left);
+                else if (a.right != null && b.right != null && a.left == null && b.left == null)
+                    be = CTFR(a.right, b.right);
+                else if (a.left == null && b.left == null && a.right == null && b.right == null)
+                    be = true;
+                else be = false;
+            return be;
         }
 
-        //аналогично первой задаче на деревья - поиск предыдущего узла с таким же уровнем, как у заданного узла
         internal static void GetPrev(BTNode start, BTNode search, ref BTNode t1, ref bool f)
         {
             if (f) return;
@@ -98,7 +88,6 @@ namespace TreesTwo
                 f = true;
         }
         
-        //вычисление координат для всех узлов и для рёбер
         public void GetPoints(BTNode t, int canvasWidth, int canvasHeight, List<Point> n, List<Point>[] e)
         {
             if (t.level > 0)
@@ -142,7 +131,6 @@ namespace TreesTwo
             }
         }
 
-        //количество узлов на определенном уровне
         internal static int SizeOfLevel(BTNode c, int level)
         {
             if (c.level != level)
@@ -172,7 +160,7 @@ namespace TreesTwo
 
     public class BTNode
     {
-        public int level, value;
+        public int level;
         public BTNode left, right;
         public BTNode parent;
         public Point tpoint;

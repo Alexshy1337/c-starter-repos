@@ -4,113 +4,41 @@ namespace Sorting1
 {
     class Sorts
     {
-        public static int[] FusionSort(int[] arr, out SortReport report, int[] ar = null)
+        //CC - comparisonsCount, SC - swapsCount
+        public static void BubbleSort(int[] arr, int left, int right, ref int CC, ref int SC)
         {
-            return MergeSortImplementation(false, 0, 0, arr, ar, 0, arr.Length + ar.Length - 1, out report);
-        }
-
-
-
-        public static int[] FusionSortRender(int[] arr, int canvasWidth, int canvasHeight, 
-            
-            out SortReport report, int[] ar = null)
-        {
-            return MergeSortImplementation(true, canvasWidth, canvasHeight,
-
-                arr, ar, 0, arr.Length + ar.Length - 1, out report);
-        }
-
-
-
-        public static void BubbleSort(int[] arr, out SortReport report)
-        {
-            BubbleSortImplementation(false, 0, 0, arr, 0, arr.Length - 1, out report);
-        }
-
-        public static void BubbleSortRender(int canvasWidth, int canvasHeight, int[] arr, out SortReport report)
-        {
-            BubbleSortImplementation(true, canvasWidth, canvasHeight, arr, 0, arr.Length - 1, out report);
-        }
-
-        private static void BubbleSortImplementation
-
-            (bool render, int canvasWidth, int canvasHeight, int[] arr, int left, int right, out SortReport report)
-
-        {
-            report = (render) ? new SortReport(canvasWidth, canvasHeight) : new SortReport();
-
             for (int i = left; i < right; i++)
+            {
                 for (int j = right; j > i; j--)
                 {
-                    if (Compare(arr, j, j - 1, report) == -1)
-                        Swap(arr, j, j - 1, report);
+                    CC++;
+                    if (arr[j - 1] > arr[j])
+                    {
+                        SC++;
+                        int t = arr[j];
+                        arr[j] = arr[j - 1];
+                        arr[j - 1] = t;
+                    }
                 }
+            }
         }
 
-        private static int Compare(int[] arr, int index1, int index2, SortReport report)
+        public static int[] ReverseBubbleSort(int[] arr, int left, int right)
         {
-            report.ComparisonsCount++;
-
-            if (report.Render)
-                RenderComparison(arr, index1, index2, report);
-
-            return (arr[index1] == arr[index2]) ? 0
-                : (arr[index1] > arr[index2]) ? 1 : -1;
+            for (int i = left; i < right; i++)
+            {
+                for (int j = right; j > i; j--)
+                {
+                    if (arr[j - 1] < arr[j])
+                    {
+                        int t = arr[j];
+                        arr[j] = arr[j - 1];
+                        arr[j - 1] = t;
+                    }
+                }
+            }
+            return arr;
         }
-
-
-        private static void Swap(int[] arr, int index1, int index2, SortReport report)
-        {
-            report.SwapsCount++;
-
-            if (report.Render)
-                RenderSwap(arr, index1, index2, report);
-
-            int t = arr[index1];
-            arr[index1] = arr[index2];
-            arr[index2] = t;
-
-            if (report.Render)
-                RenderComparison(arr, index1, index2, report);
-        }
-
-        private static void RenderComparison(int[] arr, int index1, int index2, SortReport report)
-        {
-            report.Frames.Add(Show.DrawArrayToBitmap(report.CanvasWidth, report.CanvasHeight, arr,
-                new HashSet<int>() { index1, index2 }, Show.HighlightType.Comparing));
-        }
-
-        private static void RenderSwap(int[] arr, int index1, int index2, SortReport report)
-        {
-            report.Frames.Add(Show.DrawArrayToBitmap(report.CanvasWidth, report.CanvasHeight, arr,
-                new HashSet<int>() { index1, index2 }, Show.HighlightType.Swapping));
-        }
-
-
-
-        private static int CompareF(int one, int two, SortReport report)
-        {
-            report.ComparisonsCount++;
-
-            if (report.Render)
-                RenderComparisonF(one, two, report);
-
-            return (one == two) ? 0
-                : (one > two) ? 1 : -1;
-
-        }
-
-
-
-        private static void RenderComparisonF(int one, int two, SortReport report)
-        {
-
-
-    //        report.Frames.Add(Show.DrawArrayToBitmap(report.CanvasWidth, report.CanvasHeight, arr,
-    //new HashSet<int>() { one, two }, Show.HighlightType.Comparing));
-
-        }
-
 
 
 
@@ -124,15 +52,9 @@ namespace Sorting1
           * отсортированная версия массива может оказаться либо в 'up', либо в 'down'
           **/
 
-        private static int[] MergeSortImplementation
-            
-            (bool render, int canvasWidth, int canvasHeight,
-                
-                int[] up, int[] down, int left, int right, out SortReport report)
-
+        //CC - comparisonsCount, SC - swapsCount
+        private static int[] FusionSort(int[] up, int[] down, int left, int right, ref int CC, ref int SC)
         {
-
-            report = (render) ? new SortReport(canvasWidth, canvasHeight) : new SortReport();
 
 
             if (left == right)
@@ -144,8 +66,8 @@ namespace Sorting1
             int middle = (left + right) / 2;
 
             // разделяй и властвуй
-            int[] l_buff = MergeSortImplementation(render, 0, 0, up, down, left, middle, out report);
-            int[] r_buff = MergeSortImplementation(render, 0, 0, up, down, middle + 1, right, out report);
+            int[] l_buff = FusionSort(up, down, left, middle, ref CC, ref SC);
+            int[] r_buff = FusionSort(up, down, middle + 1, right, ref CC, ref SC);
 
             // слияние двух отсортированных половин
             int[] target = l_buff == up ? down : up;
@@ -153,26 +75,31 @@ namespace Sorting1
             int l_cur = left, r_cur = middle + 1;
             for (int i = left; i <= right; i++)
             {
-                if (l_cur <= middle && r_cur <= right)//Compare(arr, j, j - 1, report) == -1
+                if (l_cur <= middle && r_cur <= right)
                 {
+                    CC++;
                     if (l_buff[l_cur] < r_buff[r_cur])
                     {
+                        SC++;
                         target[i] = l_buff[l_cur];
                         l_cur++;
                     }
                     else
                     {
+                        SC++;
                         target[i] = r_buff[r_cur];
                         r_cur++;
                     }
                 }
-                else if (l_cur <= middle)
+                else if (l_cur <= middle)//не является сравнением, т.к. элементы массива не сравниваются
                 {
+                    SC++;
                     target[i] = l_buff[l_cur];
                     l_cur++;
                 }
                 else
                 {
+                    SC++;
                     target[i] = r_buff[r_cur];
                     r_cur++;
                 }
@@ -279,39 +206,6 @@ namespace Sorting1
 
 
     }
-
-
-
-    public class SortReport
-    {
-        public int ComparisonsCount;
-        public int SwapsCount;
-
-        public bool Render;
-
-        public int CanvasWidth;
-        public int CanvasHeight;
-
-        public DLList Frames;
-
-        public SortReport()
-        {
-            Render = false;
-            CanvasWidth = CanvasHeight = 0;
-            Frames = null;
-        }
-
-        public SortReport(int canvasWidth, int canvasHeight)
-        {
-            Render = true;
-            CanvasWidth = canvasWidth;
-            CanvasHeight = canvasHeight;
-
-            Frames = new DLList();
-        }
-    }
-
-
     //mark:
     //goto mark;
 }

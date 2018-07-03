@@ -11,21 +11,6 @@ namespace Sorting1
 {
     public class Utils
     {
-
-
-        public class MessageHelper
-        {
-            public static void MSG(string text)
-            {
-                MessageBox.Show(text);
-            }
-            public static void ErrorMSG(string text)
-            {
-                MessageBox.Show(text, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-        }
-
         public class DGVHelper
         {
             public static void FillDGV(DataGridView dgv, int[] a)
@@ -63,7 +48,7 @@ namespace Sorting1
             {
                 for(int i = 0; i < a.Length; i++)
                 {
-                    int RandomIndex = p.Next(i, a.Length - 1), l = 0;
+                    int RandomIndex = p.Next(a.Length - 1), l = 0;
                     l = a[i];
                     a[i] = a[RandomIndex];
                     a[RandomIndex] = l;
@@ -79,20 +64,5 @@ namespace Sorting1
                 return a;
             }
         }
-
-        /*
-        public class FilesHelper
-        {
-            public static string FileToStr(string path)
-            {
-                return File.ReadAllText(path);
-            }
-
-            public static string[] 
-            
-        }
-        */
-
-
     }
 }
