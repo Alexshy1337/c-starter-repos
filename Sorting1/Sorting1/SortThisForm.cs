@@ -8,7 +8,7 @@ namespace Sorting1
 {
     public partial class SortThisForm : Form
     {
-        private static int[] arr1, arr2;
+        private static int[] arr, arr1, arr2;
 
         public SortThisForm()
         {
@@ -17,10 +17,14 @@ namespace Sorting1
 
         private void SortThisForm_Load(object sender, EventArgs e)
         {
-            InputDGV1.RowCount = 1;
-            InputDGV1.ColumnCount = 1;
-            InputDGV2.RowCount = 1;
-            InputDGV2.ColumnCount = 1;
+            InputDGV1.Rows.Clear();
+            InputDGV2.Rows.Clear();
+            InputDGV1.ColumnHeadersVisible = false;
+            InputDGV1.RowHeadersVisible = false;
+            InputDGV2.ColumnHeadersVisible = false;
+            InputDGV2.RowHeadersVisible = false;
+
+
         }
 
         private void NumForDGV1_ValueChanged(object sender, EventArgs e)
@@ -74,32 +78,62 @@ namespace Sorting1
 
         private void CompareButton_Click(object sender, EventArgs e)
         {
-            int size = (int)NUDC.Value;
-            List<Point> l = new List<Point>();
-            int FCC = 0, FSC = 0;
-            int[] ar = new int[(int)NumForDGV1.Value];
-            arr1 = Sorts.FusionSort(arr1, ar, 0, ar.Length - 1, ref FCC, ref FSC);
-            //NUDC
-
-            FCC = 0; FSC = 0;
-            Utils.DGVHelper.FillDGV(InputDGV1, arr1);
-            //MainChart.ChartAreas[0].
-            MainChart.Series[0].Points.Add(new Point());
+            int size = 0;
+            int.TryParse(SizeTextBox.Text, out size);
+            int BCC = 0, BSC = 0, FCC = 0, FSC = 0;
+            MainChart.Series[0].Points.Clear();
+            MainChart.Series[1].Points.Clear();
+            if(CompCountRadio.Checked)
+            {
+                for (int i = 0; i < size; i++)
+                {
+                    int[] ar = new int[i + 1];
+                    arr = Utils.ArrHelper.GenArr(i + 1);
+                    arr = Sorts.FusionSortComparable(arr, ar, 0, ar.Length - 1, ref FCC, ref FSC);
+                    arr = Utils.ArrHelper.GenArr(i + 1);
+                    arr = Sorts.BubbleSortComparable(arr, 0, arr.Length - 1, ref BCC, ref BSC);
+                    MainChart.Series[0].Points.AddXY(i, BCC);
+                    MainChart.Series[1].Points.AddXY(i, FCC);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < size; i++)
+                {
+                    int[] ar = new int[i + 1];
+                    arr = Utils.ArrHelper.GenArr(i + 1);
+                    arr = Sorts.FusionSortComparable(arr, ar, 0, ar.Length - 1, ref FCC, ref FSC);
+                    arr = Utils.ArrHelper.GenArr(i + 1);
+                    arr = Sorts.BubbleSortComparable(arr, 0, arr.Length - 1, ref BCC, ref BSC);
+                    MainChart.Series[0].Points.AddXY(i, BSC);
+                    MainChart.Series[1].Points.AddXY(i, FSC);
+                }
+            }
         }
     
 
         private void SortButton_Click_1(object sender, EventArgs e)
         {
-            int BCC = 0, BSC = 0, FCC = 0, FSC = 0;
             if (FusionRadio.Checked)
             {
-                int[] ar = new int[(int)NumForDGV1.Value];
-                arr1 = Sorts.FusionSort(arr1, ar, 0, ar.Length - 1, ref FCC, ref FSC);
-                Utils.DGVHelper.FillDGV(InputDGV1, arr1);
+                if(NumForDGV2.Value != 0)
+                {
+                    //FusionSortForTask
+                    int[] ar = new int[(int)NumForDGV1.Value];
+                    arr1 = Sorts.FusionSortForTask(arr1, arr2, ar);
+                    Utils.DGVHelper.FillDGV(InputDGV1, arr1);
+                }
+                else
+                {
+                    int[] ar = new int[(int)NumForDGV1.Value];
+                    arr1 = Sorts.FusionSort(arr1, ar, 0, arr1.Length - 1);
+                    Utils.DGVHelper.FillDGV(InputDGV1, arr1);
+                }
             }
             else if (BubbleRadio.Checked)
             {
-                //
+                arr1 = Sorts.BubbleSort(arr1, 0, arr.Length - 1);
+                Utils.DGVHelper.FillDGV(InputDGV1, arr1);
             }
         }
     }
