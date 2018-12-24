@@ -1,0 +1,17 @@
+Z:\Profile\My Documents\Task_3\ClassLibrary\bin\Debug\ClassLibrary.dll
+Z:\Profile\My Documents\Task_3\ClassLibrary\bin\Debug\ClassLibrary.pdb
+Z:\Profile\My Documents\Task_3\ClassLibrary\obj\Debug\ClassLibrary.csprojResolveAssemblyReference.cache
+Z:\Profile\My Documents\Task_3\ClassLibrary\obj\Debug\ClassLibrary.dll
+Z:\Profile\My Documents\Task_3\ClassLibrary\obj\Debug\ClassLibrary.pdb
+f:\Task_3\ClassLibrary\bin\Debug\ClassLibrary.dll
+f:\Task_3\ClassLibrary\bin\Debug\ClassLibrary.pdb
+f:\Task_3\ClassLibrary\obj\Debug\ClassLibrary.csprojAssemblyReference.cache
+f:\Task_3\ClassLibrary\obj\Debug\ClassLibrary.csproj.CoreCompileInputs.cache
+f:\Task_3\ClassLibrary\obj\Debug\ClassLibrary.dll
+f:\Task_3\ClassLibrary\obj\Debug\ClassLibrary.pdb
+c:\Users\Sasha\source\repos\GIT_REPOSITORY\Task_3\ClassLibrary\bin\Debug\ClassLibrary.dll
+c:\Users\Sasha\source\repos\GIT_REPOSITORY\Task_3\ClassLibrary\bin\Debug\ClassLibrary.pdb
+c:\Users\Sasha\source\repos\GIT_REPOSITORY\Task_3\ClassLibrary\obj\Debug\ClassLibrary.csprojAssemblyReference.cache
+c:\Users\Sasha\source\repos\GIT_REPOSITORY\Task_3\ClassLibrary\obj\Debug\ClassLibrary.csproj.CoreCompileInputs.cache
+c:\Users\Sasha\source\repos\GIT_REPOSITORY\Task_3\ClassLibrary\obj\Debug\ClassLibrary.dll
+c:\Users\Sasha\source\repos\GIT_REPOSITORY\Task_3\ClassLibrary\obj\Debug\ClassLibrary.pdb

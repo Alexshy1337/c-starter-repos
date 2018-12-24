@@ -1,0 +1,31 @@
+Z:\Profile\My Documents\Task_3\Task_3\bin\Debug\Task_3.exe.config
+Z:\Profile\My Documents\Task_3\Task_3\bin\Debug\Task_3.exe
+Z:\Profile\My Documents\Task_3\Task_3\bin\Debug\Task_3.pdb
+Z:\Profile\My Documents\Task_3\Task_3\bin\Debug\ClassLibrary.dll
+Z:\Profile\My Documents\Task_3\Task_3\bin\Debug\ClassLibrary.pdb
+Z:\Profile\My Documents\Task_3\Task_3\obj\Debug\Task_3.csprojResolveAssemblyReference.cache
+Z:\Profile\My Documents\Task_3\Task_3\obj\Debug\Task_3.MainForm.resources
+Z:\Profile\My Documents\Task_3\Task_3\obj\Debug\Task_3.Properties.Resources.resources
+Z:\Profile\My Documents\Task_3\Task_3\obj\Debug\Task_3.csproj.GenerateResource.Cache
+Z:\Profile\My Documents\Task_3\Task_3\obj\Debug\Task_3.exe
+Z:\Profile\My Documents\Task_3\Task_3\obj\Debug\Task_3.pdb
+f:\Task_3\Task_3\obj\Debug\Task_3.csprojAssemblyReference.cache
+f:\Task_3\Task_3\obj\Debug\Task_3.MainForm.resources
+f:\Task_3\Task_3\obj\Debug\Task_3.Properties.Resources.resources
+f:\Task_3\Task_3\obj\Debug\Task_3.csproj.GenerateResource.cache
+f:\Task_3\Task_3\obj\Debug\Task_3.csproj.CoreCompileInputs.cache
+f:\Task_3\Task_3\obj\Debug\Task_3.exe
+f:\Task_3\Task_3\obj\Debug\Task_3.pdb
+c:\Users\Sasha\source\repos\GIT_REPOSITORY\Task_3\Task_3\obj\Debug\Task_3.csprojAssemblyReference.cache
+c:\Users\Sasha\source\repos\GIT_REPOSITORY\Task_3\Task_3\obj\Debug\Task_3.MainForm.resources
+c:\Users\Sasha\source\repos\GIT_REPOSITORY\Task_3\Task_3\obj\Debug\Task_3.Properties.Resources.resources
+c:\Users\Sasha\source\repos\GIT_REPOSITORY\Task_3\Task_3\obj\Debug\Task_3.csproj.GenerateResource.cache
+c:\Users\Sasha\source\repos\GIT_REPOSITORY\Task_3\Task_3\obj\Debug\Task_3.csproj.CoreCompileInputs.cache
+c:\Users\Sasha\source\repos\GIT_REPOSITORY\Task_3\Task_3\obj\Debug\Task_3.exe
+c:\Users\Sasha\source\repos\GIT_REPOSITORY\Task_3\Task_3\obj\Debug\Task_3.pdb
+c:\Users\Sasha\source\repos\GIT_REPOSITORY\Task_3\Task_3\bin\Debug\Task_3.exe.config
+c:\Users\Sasha\source\repos\GIT_REPOSITORY\Task_3\Task_3\bin\Debug\Task_3.exe
+c:\Users\Sasha\source\repos\GIT_REPOSITORY\Task_3\Task_3\bin\Debug\Task_3.pdb
+c:\Users\Sasha\source\repos\GIT_REPOSITORY\Task_3\Task_3\bin\Debug\ClassLibrary.dll
+c:\Users\Sasha\source\repos\GIT_REPOSITORY\Task_3\Task_3\bin\Debug\ClassLibrary.pdb
+c:\Users\Sasha\source\repos\GIT_REPOSITORY\Task_3\Task_3\obj\Debug\Task_3.csproj.CopyComplete
